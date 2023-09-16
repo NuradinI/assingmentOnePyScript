@@ -9,7 +9,7 @@ def open_file(mode):
     if python2:
         return open(file_location, mode)
     else:
-        return open(file_location, mode, newline='', encoding='utf-8')
+        return open(file_location, mode, newline='', encoding='utf-8') #python3 gives options for those last 2 arguments
 
 filtered_rows = []
 #reading file
@@ -18,7 +18,7 @@ with open_file('rb' if python2 else 'r') as file:
 
     firstName = 'firstName'
     if python2:
-        firstName = firstName.encode('utf-8')
+        firstName = firstName.encode('utf-8') #unnecessary?
 #appending all the rows without the specified values into file
     for row in reader:
         if row[firstName] not in ["Behnam", "Arash"]:
